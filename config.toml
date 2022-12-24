@@ -1,4 +1,4 @@
-baseURL = 'https://khalil-ch.netlify.app/'
+baseURL = 'https://khalil.ninja/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'paper'

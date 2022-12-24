@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://khalil-ch.netlify.app/posts/docker/</loc>
+    <loc>https://khalil.ninja/posts/docker/</loc>
     <lastmod>2022-12-24T00:47:19+01:00</lastmod>
   </url><url>
-    <loc>https://khalil-ch.netlify.app/</loc>
+    <loc>https://khalil.ninja/</loc>
     <lastmod>2022-12-24T00:47:19+01:00</lastmod>
   </url><url>
-    <loc>https://khalil-ch.netlify.app/posts/</loc>
+    <loc>https://khalil.ninja/posts/</loc>
     <lastmod>2022-12-24T00:47:19+01:00</lastmod>
   </url><url>
-    <loc>https://khalil-ch.netlify.app/posts/cpu_scheduling/</loc>
+    <loc>https://khalil.ninja/posts/cpu_scheduling/</loc>
     <lastmod>2022-12-24T00:47:10+01:00</lastmod>
   </url><url>
-    <loc>https://khalil-ch.netlify.app/posts/my-first-post/</loc>
+    <loc>https://khalil.ninja/posts/my-first-post/</loc>
     <lastmod>2022-12-24T00:45:54+01:00</lastmod>
   </url><url>
-    <loc>https://khalil-ch.netlify.app/categories/</loc>
+    <loc>https://khalil.ninja/categories/</loc>
   </url><url>
-    <loc>https://khalil-ch.netlify.app/tags/</loc>
+    <loc>https://khalil.ninja/tags/</loc>
   </url>
 </urlset>

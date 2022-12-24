@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>https://khalil-ch.netlify.app/</link>
+    <link>https://khalil.ninja/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Dec 2022 00:47:19 +0100</lastBuildDate><atom:link href="https://khalil-ch.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Dec 2022 00:47:19 +0100</lastBuildDate><atom:link href="https://khalil.ninja/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker</title>
-      <link>https://khalil-ch.netlify.app/posts/docker/</link>
+      <link>https://khalil.ninja/posts/docker/</link>
       <pubDate>Sat, 24 Dec 2022 00:47:19 +0100</pubDate>
       
-      <guid>https://khalil-ch.netlify.app/posts/docker/</guid>
+      <guid>https://khalil.ninja/posts/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cpu_scheduling</title>
-      <link>https://khalil-ch.netlify.app/posts/cpu_scheduling/</link>
+      <link>https://khalil.ninja/posts/cpu_scheduling/</link>
       <pubDate>Sat, 24 Dec 2022 00:47:10 +0100</pubDate>
       
-      <guid>https://khalil-ch.netlify.app/posts/cpu_scheduling/</guid>
+      <guid>https://khalil.ninja/posts/cpu_scheduling/</guid>
       <description>CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &amp;hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible.</description>
     </item>
     
     <item>
       <title>My First Post</title>
-      <link>https://khalil-ch.netlify.app/posts/my-first-post/</link>
+      <link>https://khalil.ninja/posts/my-first-post/</link>
       <pubDate>Sat, 24 Dec 2022 00:45:54 +0100</pubDate>
       
-      <guid>https://khalil-ch.netlify.app/posts/my-first-post/</guid>
+      <guid>https://khalil.ninja/posts/my-first-post/</guid>
       <description>Introduction Hello 👋 im Khalil and this is my portfolio website.</description>
     </item>
     

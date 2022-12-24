@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Cpu_scheduling - My New Hugo Site</title>
+
+  
+  <meta name="theme-color" />
+  
+  <meta name="description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible." />
+  <meta
+    name="author"
+    content=""
+  />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://khalil-ch.netlify.app/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://khalil-ch.netlify.app/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://khalil-ch.netlify.app/theme.png" />
+
+  
+  
+  
+  
+
+  
+
+  
+  <link rel="icon" href="https://khalil-ch.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://khalil-ch.netlify.app/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.109.0">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Cpu_scheduling" />
+<meta property="og:description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khalil-ch.netlify.app/posts/cpu_scheduling/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-24T00:47:10+01:00" />
+<meta property="article:modified_time" content="2022-12-24T00:47:10+01:00" />
+
+  
+  <meta itemprop="name" content="Cpu_scheduling">
+<meta itemprop="description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible."><meta itemprop="datePublished" content="2022-12-24T00:47:10+01:00" />
+<meta itemprop="dateModified" content="2022-12-24T00:47:10+01:00" />
+<meta itemprop="wordCount" content="1220">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cpu_scheduling"/>
+<meta name="twitter:description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://khalil-ch.netlify.app/"
+      >My New Hugo Site</a
+    >
+    <a
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+    ></a>
+  </div>
+
+  <a
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+  ></a>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">Cpu_scheduling</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Dec 24, 2022</time>
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="cpu-scheduling">CPU Scheduling</h1>
+<ul>
+<li>multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation</li>
+<li>when one process has to wait the os takes the cpu from that process and giving it to another process</li>
+</ul>
+<h1 id="cpu-scheduling-alogrithms">CPU scheduling alogrithms</h1>
+<h2 id="cpu-and-io-burst-cycles">CPU and I/O Burst Cycles</h2>
+<ul>
+<li>process execution consists of a cycle of ==cpu execution== and ==I/O wait==.</li>
+<li>process alternates between these 2 states</li>
+<li>process execution begins with :
+<ul>
+<li><em>CPU burst</em></li>
+<li><em>I/O burst</em></li>
+<li><em>CPU burst</em></li>
+<li><em>I/O burst</em></li>
+<li>&hellip;
+<em>CPU burst is when the process is being executed in the CPU</em>
+<em>I/O burst is when the cpu is waiting for I/O for further execution</em></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>preemptive scheduling : a high priority process can be given the CPU
+<ul>
+<li>when a process switches from <em>running state</em> to <em>ready state</em> (interruption)</li>
+<li>when a process switches from <em>waiting state</em> to <em>ready state</em> (completion of I/O)</li>
+</ul>
+</li>
+<li>non preemptive scheduling : a process will not be distrubed until it is complete
+<ul>
+<li>when a process switches from <em>running</em> to <em>waiting state</em> (waiting for I/O)</li>
+<li>when a process <em>terminates</em></li>
+</ul>
+</li>
+</ol>
+<h2 id="scheduling-criteria-">Scheduling criteria 📋</h2>
+<ol>
+<li>CPU utilization :
+<ul>
+<li>we want to keep the cpu as busy as possible. cpu utlization conceptually ranges from 0 to 100%</li>
+</ul>
+</li>
+<li>Throughput :
+<ul>
+<li>measures the number of processes that are being completed by time unit</li>
+</ul>
+</li>
+<li>Turnaround time :
+<ul>
+<li>the interval from the time of submission of a process to the time of completion/</li>
+<li><strong>turnaround time is the sum of the periods spent waiting to get into memory, waiting in the ready queue, executing on the cpu and doing I/O</strong></li>
+</ul>
+</li>
+<li>Waiting time :
+<ul>
+<li>waiting time is the sum of the periods spent waiting in the ready queue.</li>
+</ul>
+</li>
+<li>Response time :
+<ul>
+<li>time from the submission of a request until the first response is produced.</li>
+</ul>
+</li>
+</ol>
+<h3 id="fcfs-first-come-first-served-">FCFS (First Come First Served) 🚦</h3>
+<ul>
+<li>Simplest CPU-scheduling algorithm</li>
+<li>the process that requests the cpu first is allocated the cpu first</li>
+<li>implmentation of fcfs policy is easily managed with a <strong>FIFO queue</strong></li>
+<li>the average waiting time under the FCFS policy is quite long</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Burst Time (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>24</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>P1&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-P2-P3</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;24-27-30</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>waiting time for P1=0</li>
+<li>waiting time for P2=24 |&mdash;&gt; <strong>Avg waiting time</strong> = (0+24+27)/3 = <strong>17 ms</strong></li>
+<li>waiting time for P3=27
+<strong>another case</strong>
+<table>
+<thead>
+<tr>
+<th>P2-P3-P1</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0&ndash;3&ndash;6&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;30</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>waiting time for P1= 6</li>
+<li>waiting time for P2= 0 |&mdash;&gt; <strong>Avg waiting time</strong> = (0+3+6)/3 = <strong>3 ms</strong></li>
+<li>waiting time for P3= 3
+<strong>! depends on the cpu burst time</strong>
+<strong>! FCFS is non preemptive</strong></li>
+<li>Process keeps the cpu until termination or requesting I/O</li>
+</ul>
+<h3 id="sjfs-shortest-job-first-scheduling-">SJFS (Shortest Job First Scheduling) 🚀</h3>
+<ul>
+<li>This alogrithm associates with each process the length of <strong>the process&rsquo;s next cpu burst</strong></li>
+<li>when the cpu is available, it is assigned to the process <strong>that has the smallest next CPU burst</strong></li>
+<li>if the burst is the same, FCFS scheduling is used to break the tie</li>
+<li><strong>SJFS algorithm can be preemptive or non preemptive</strong></li>
+</ul>
+<h4 id="example-of-non-preemptive-sjfs">Example of non preemptive SJFS</h4>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Burst Time (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>6</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>8</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>7</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gant chart</strong></p>
+<table>
+<thead>
+<tr>
+<th>P4-P1&mdash;-P3&mdash;&ndash;P2</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0&ndash;3&mdash;&ndash;9&mdash;&mdash;16&mdash;&mdash;24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>waiting time for P1 = 3ms</strong>}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>waiting time for P2 = 16ms</strong> }==&gt; average waiting time = (3+16+9)/4= <em>7 ms</em></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>waiting time for P3 = 9ms</strong>}=&gt; with fcfs the avg wait would be <em>10.25 ms</em></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>waiting time for P4= 0ms</strong>}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-of-preemptive-sjfs">Example of preemptive SJFS</h4>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Arrival Time</th>
+<th>Burst Time (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>0</td>
+<td>8</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>2</td>
+<td>9</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>3</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>P1</strong>-P2&mdash;-P4&mdash;&mdash;<strong>P1</strong>&mdash;&mdash;&mdash;-P3
+| <strong>-</strong> | - - - - | - - - - - | <strong>- - - - - - -</strong> | - - - - - - - - - |
+0-1&mdash;&mdash;-5&mdash;&mdash;-10&mdash;&mdash;&mdash;-17&mdash;&mdash;&mdash;&mdash;-26
+<strong>waiting time for P1 = (0+10) - 1 - 0 = 9ms</strong>}
+<strong>waiting time for P2 = 1- 0 -1 = 0 ms</strong> }==&gt; average waiting time = (26)/4= <em>6.5 ms</em>
+<strong>waiting time for P3 = 17 - 0 - 2 = 15 ms</strong>}=&gt;
+<strong>waiting time for P4= 5 - 0 - 3 = 2 ms</strong>}</p>
+<ul>
+<li>==waiting time = total waiting time - nb of ms process executed - arrival time==</li>
+<li>Although the SJF algorithm is optimal, it cannot be implemented at the level of short-term CPU scheduling.</li>
+<li>The real difficulty with the SJF algorithm is knowing the length of the next CPU request.</li>
+<li>There is no way to know the length of the next CPU burst.
+One approach is:</li>
+<li>To try to approximate SJF scheduling.</li>
+<li>We may not know the length of the next CPU burst, but we may be able to predict its value.</li>
+</ul>
+<h3 id="ps-priority-scheduling-">PS (Priority Scheduling) 📋</h3>
+<ul>
+<li>A priority is associated with each process, and the CPU is allocated to the process with the highest priority.</li>
+<li>Equal-priority processes are scheduled in FCFS order.</li>
+<li>An SJF algorithm is simply a priority algorithm where the priority is the inverse of the (predicted) next CPU burst.</li>
+<li>The larger the CPU burst, the lower the priority, and vice versa.</li>
+<li>Priority scheduling can be either <strong>preemptive</strong> or <strong>nonpreemptive</strong></li>
+<li>A preemptive priority scheduling algorithm will preempt the CPU if the priority of the newly arrived process is higher than the priority of the currently running process.</li>
+<li>A nonpreemptive priority scheduling algorithm will simply put the new process at the head of the ready queue.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>PID</th>
+<th>Burst Time (ms)</th>
+<th><strong>Priority</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>10</td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td>P2</td>
+<td>1</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>P3</td>
+<td>2</td>
+<td><strong>4</strong></td>
+</tr>
+<tr>
+<td>P4</td>
+<td>1</td>
+<td><strong>5</strong></td>
+</tr>
+<tr>
+<td>P5</td>
+<td>5</td>
+<td><strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+<p>P2-P5&mdash;&ndash;P1&mdash;&mdash;&mdash;&mdash;&ndash;P3&ndash;P4
+| - | - - - - - | - - - - - - - - - - | - - | - |
+0-1&mdash;&mdash;&ndash;6&mdash;&mdash;&mdash;&mdash;&mdash;-16-18-19
+<strong>waiting time for P1 = 6 ms</strong>}
+<strong>waiting time for P2 = 0 ms</strong> }==&gt; average waiting time = 41/5= <em>8.2 ms</em>
+<strong>waiting time for P3 = 16 ms</strong>}=&gt;
+<strong>waiting time for P4= 18 ms</strong>}
+<strong>waiting time for P5= 1 ms</strong>}</p>
+<h4 id="problem-with-priority-scheduling-algorithm-">Problem with Priority Scheduling algorithm ⚠️</h4>
+<ul>
+<li>in heavily loaded computer system with a stady steam of high priority processes can prevent a low priority process of ever getting to use the cpu</li>
+<li>can leave some low priority processes waiting indefinetely</li>
+<li>a major problem of priority scheduling algorithm is <strong>indefinite blocking</strong> or <strong>starvation</strong></li>
+</ul>
+<h4 id="solution-to-the-problem-">Solution to the problem ✅</h4>
+<ul>
+<li>a solution of indifinite bloquage of low priority processes is <strong>aging</strong></li>
+<li>gradually increasing the priority of processes that wait in the system for a long time</li>
+</ul>
+<h3 id="rr-round-robin-scheduling-">RR (Round Robin Scheduling) ⏲️</h3>
+<ul>
+<li>Round Robin algorithm is specifically designed for time sharing systems</li>
+<li>It is similar to FCFS scheduling but premption is added to switch between processes</li>
+<li>A small unit of time called time quantum or time slice is defined (<em>generally from 10 to 100 ms</em>)</li>
+<li>we keep the ready queue as FIFO queue</li>
+<li>different scenarios
+<ul>
+<li>CPU burst &lt; 1 time quantum :
+<ul>
+<li>the process will release the cpu voluntarily</li>
+<li>the cpu scheduler will go to the next ready process in the ready queue</li>
+</ul>
+</li>
+<li>CPU burst &gt; 1 time quantum :
+<ul>
+<li>interruption of the os</li>
+<li>a context switch will be executed and the process will be put at the end of the tail</li>
+<li>cpu scheduler will select the next process in the ready queue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>time quantum is at 4ms</p>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Burst Time (ms)</th>
+<th>TAT</th>
+<th>AWT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>24</td>
+<td>30 - 0 = 30</td>
+<td>30 - 24 = 6</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>3</td>
+<td>7 - 0 = 7</td>
+<td>7 - 3 = 4</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>3</td>
+<td>10 - 0 = 10</td>
+<td>10 - 3 = 7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>P1</strong>&ndash;P2-P3-<strong>P1&ndash;P1&ndash;P1&ndash;P1&ndash;P1</strong>
+|<strong>&mdash;-</strong>|&mdash;|&mdash;|<strong>&mdash;-|&mdash;-|&mdash;-|&mdash;-|&mdash;-</strong>|
+0 4 7 <strong>10 14 18 22 26 30</strong>
+<strong>Turn around time = completion time - arrival time</strong>
+**Wait time = tat - burst time **</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center p-6 pr-3 no-underline"
+      href="https://khalil-ch.netlify.app/posts/docker/"
+      ><span class="mr-1.5">←</span><span>Docker</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline"
+      href="https://khalil-ch.netlify.app/posts/my-first-post/"
+      ><span>My First Post</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2022
+    <a class="link" href="https://khalil-ch.netlify.app/">My New Hugo Site</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >▷ Paper 6</a
+  >
+</footer>
+
+  </body>
+</html>

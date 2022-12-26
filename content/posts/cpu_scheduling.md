@@ -1,19 +1,19 @@
 ---
-title: "Cpu_scheduling"
+title: "CPU Scheduling"
 date: 2022-12-24T00:47:10+01:00
 # draft: true
 ---
 
 # CPU Scheduling
 
-- multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation
-- when one process has to wait the os takes the cpu from that process and giving it to another process
+- CPU Scheduling is a process of determining which process will own CPU for execution while another process is on hold.
+- When one process has to wait the os takes the cpu from that process and give it to another process
 
 # CPU scheduling alogrithms
 
 ## CPU and I/O Burst Cycles
 
-- process execution consists of a cycle of ==cpu execution== and ==I/O wait==.
+- process execution consists of a cycle of cpu execution and I/O wait.
 - process alternates between these 2 states
 - process execution begins with :
   - _CPU burst_
@@ -58,17 +58,23 @@ date: 2022-12-24T00:47:10+01:00
 | P2      | 3               |
 | P3      | 3               |
 
-P1----------------------P2-P3
+```
+P1                       P2  P3
 |------------------------|---|---|
-0-----------------------24-27-30
+0                        24  27  30
+```
 
 - waiting time for P1=0
 - waiting time for P2=24 |---> **Avg waiting time** = (0+24+27)/3 = **17 ms**
 - waiting time for P3=27
   **another case**
-  P2-P3-P1
+
+```
+  P2  P3  P1
   |---|---|------------------------|
-  0--3--6-----------------------30
+  0   3   6                        30
+```
+
 - waiting time for P1= 6
 - waiting time for P2= 0 |---> **Avg waiting time** = (0+3+6)/3 = **3 ms**
 - waiting time for P3= 3
@@ -93,9 +99,15 @@ P1----------------------P2-P3
 | P4      | 3               |
 
 **Gant chart**
-P4-P1----P3-----P2
+
+```
+P4  P1     P3      P2
 |---|------|-------|--------|
-0--3-----9------16------24
+0   3      9       16       24
+```
+
+---
+
 **waiting time for P1 = 3ms**}
 **waiting time for P2 = 16ms** }==> average waiting time = (3+16+9)/4= _7 ms_
 **waiting time for P3 = 9ms**}=> with fcfs the avg wait would be _10.25 ms_
@@ -110,15 +122,20 @@ P4-P1----P3-----P2
 | P3      | 2            | 9               |
 | P4      | 3            | 5               |
 
-**P1**-P2----P4------**P1**----------P3
-| **-** | - - - - | - - - - - | **- - - - - - -** | - - - - - - - - - |
-0-1-------5-------10----------17-------------26
+```
+P1  P2        P4          P1              P3
+| - | - - - - | - - - - - | - - - - - - - | - - - - - - - - - |
+0   1         5           10              17                  26
+```
+
+---
+
 **waiting time for P1 = (0+10) - 1 - 0 = 9ms**}
 **waiting time for P2 = 1- 0 -1 = 0 ms** }==> average waiting time = (26)/4= _6.5 ms_
 **waiting time for P3 = 17 - 0 - 2 = 15 ms**}=>
 **waiting time for P4= 5 - 0 - 3 = 2 ms**}
 
-- ==waiting time = total waiting time - nb of ms process executed - arrival time==
+- waiting time = total waiting time - nb of ms process executed - arrival time
 - Although the SJF algorithm is optimal, it cannot be implemented at the level of short-term CPU scheduling.
 - The real difficulty with the SJF algorithm is knowing the length of the next CPU request.
 - There is no way to know the length of the next CPU burst.
@@ -144,14 +161,19 @@ P4-P1----P3-----P2
 | P4  | 1               | **5**        |
 | P5  | 5               | **2**        |
 
-P2-P5-----P1--------------P3--P4
+```
+P2  P5          P1                    P3    P4
 | - | - - - - - | - - - - - - - - - - | - - | - |
-0-1--------6----------------16-18-19
-**waiting time for P1 = 6 ms**}
-**waiting time for P2 = 0 ms** }==> average waiting time = 41/5= _8.2 ms_
-**waiting time for P3 = 16 ms**}=>
-**waiting time for P4= 18 ms**}
-**waiting time for P5= 1 ms**}
+0   1           6                     16    18  19
+```
+
+---
+
+waiting time for P1 = 6 ms}
+waiting time for P2 = 0 ms }==> average waiting time = 41/5= _8.2 ms_
+waiting time for P3 = 16 ms}=>
+waiting time for P4= 18 ms}
+waiting time for P5= 1 ms}
 
 #### Problem with Priority Scheduling algorithm ⚠️
 
@@ -187,8 +209,13 @@ time quantum is at 4ms
 | P2      | 3               | 7 - 0 = 7   | 7 - 3 = 4   |
 | P3      | 3               | 10 - 0 = 10 | 10 - 3 = 7  |
 
-**P1**--P2-P3-**P1--P1--P1--P1--P1**
-|**----**|---|---|**----|----|----|----|----**|
-0 4 7 **10 14 18 22 26 30**
+```
+P1  P2   P3  P1   P1   P1   P1   P1
+|----|---|---|----|----|----|----|----|
+0    4   7   10   14   18   22   26   30
+```
+
+---
+
 **Turn around time = completion time - arrival time**
 **Wait time = tat - burst time **

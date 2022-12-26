@@ -1,222 +1,77 @@
 <!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+
+    <link rel="shortcut icon" href="https://khalil.ninja/favicon.ico">
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.css">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html
-  class="not-ready text-sm lg:text-base"
-  style="--bg: #faf6f1"
-  lang="en-us"
->
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-
-  
-  <title>Cpu_scheduling - My New Hugo Site</title>
-
-  
-  <meta name="theme-color" />
-  
-  <meta name="description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible." />
-  <meta
-    name="author"
-    content=""
-  />
-  
-
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://khalil.ninja/main.min.css" />
-
-  
-  <script
-    defer
-    src="https://khalil.ninja/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
-
-  
-   
-  <link rel="preload" as="image" href="https://khalil.ninja/theme.png" />
-
-  
-  
-  
-  
-
-  
-
-  
-  <link rel="icon" href="https://khalil.ninja/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://khalil.ninja/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.109.0">
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="Cpu_scheduling" />
-<meta property="og:description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://khalil.ninja/posts/cpu_scheduling/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-12-24T00:47:10+01:00" />
-<meta property="article:modified_time" content="2022-12-24T00:47:10+01:00" />
-
-  
-  <meta itemprop="name" content="Cpu_scheduling">
-<meta itemprop="description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible."><meta itemprop="datePublished" content="2022-12-24T00:47:10+01:00" />
-<meta itemprop="dateModified" content="2022-12-24T00:47:10+01:00" />
-<meta itemprop="wordCount" content="1220">
-<meta itemprop="keywords" content="" />
-  
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cpu_scheduling"/>
-<meta name="twitter:description" content="CPU Scheduling multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation when one process has to wait the os takes the cpu from that process and giving it to another process CPU scheduling alogrithms CPU and I/O Burst Cycles process execution consists of a cycle of ==cpu execution== and ==I/O wait==. process alternates between these 2 states process execution begins with : CPU burst I/O burst CPU burst I/O burst &hellip; CPU burst is when the process is being executed in the CPU I/O burst is when the cpu is waiting for I/O for further execution preemptive scheduling : a high priority process can be given the CPU when a process switches from running state to ready state (interruption) when a process switches from waiting state to ready state (completion of I/O) non preemptive scheduling : a process will not be distrubed until it is complete when a process switches from running to waiting state (waiting for I/O) when a process terminates Scheduling criteria 📋 CPU utilization : we want to keep the cpu as busy as possible."/>
-
-  
-  
+    <title>CPU Scheduling</title>
 </head>
+<body>
 
-  <body class="text-black duration-200 ease-out dark:text-white">
-    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
-  <div class="relative z-50 mr-auto flex items-center">
-    <a
-      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
-      href="https://khalil.ninja/"
-      >My New Hugo Site</a
-    >
-    <a
-      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
-    ></a>
-  </div>
-
-  <a
-    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-  ></a>
+<header class="header">
+  <nav class="navbar">
+  
+    <a class="logo" href="https://khalil.ninja/">
+      
+      Khalil
+      
+    </a>
 
   
-  <script>
     
-    const htmlClass = document.documentElement.classList;
-    setTimeout(() => {
-      htmlClass.remove('not-ready');
-    }, 10);
+      <ul class="nav-menu">
+       
+      
+  </ul>
+      
+    </nav>
 
-    
-    const btnMenu = document.querySelector('.btn-menu');
-    btnMenu.addEventListener('click', () => {
-      htmlClass.toggle('open');
-    });
+  
 
-    
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = `"#faf6f1"`.replace(/"/g, '');
-    const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
-      htmlClass[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark);
-    };
+</div>
 
-    
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (htmlClass.contains('dark')) {
-      setDark(true);
-    } else {
-      const darkVal = localStorage.getItem('dark');
-      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
-    }
-
-    
-    darkScheme.addEventListener('change', (event) => {
-      setDark(event.matches);
-    });
-
-    
-    const btnDark = document.querySelector('.btn-dark');
-    btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
-    });
-  </script>
-
-  <div
-    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
-  >
-    
-    
-
-    
-  </div>
 </header>
 
 
-    <main
-      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
-    >
-      
-
+<main>
 <article>
-  <header class="mb-20">
-    <h1 class="!my-0 pb-2.5">Cpu_scheduling</h1>
+  <div class="post-header">
+    <h1 class="name">CPU Scheduling</h1>
 
     
-    <div class="text-sm opacity-60">
+    <h6 class="meta">
+      <span class="date">
       
-      <time>Dec 24, 2022</time>
-      
-      
-    </div>
+      Published on December 24, 2022</span>.</h6>
     
-  </header>
+  </div>
 
-  <section><h1 id="cpu-scheduling">CPU Scheduling</h1>
+  
+
+  <div class="post-text"><h1 id="cpu-scheduling">CPU Scheduling</h1>
 <ul>
-<li>multiprogramming is giving cpu to to processes when the current process needs to wait for I/O operation</li>
-<li>when one process has to wait the os takes the cpu from that process and giving it to another process</li>
+<li>CPU Scheduling is a process of determining which process will own CPU for execution while another process is on hold.</li>
+<li>When one process has to wait the os takes the cpu from that process and give it to another process</li>
 </ul>
 <h1 id="cpu-scheduling-alogrithms">CPU scheduling alogrithms</h1>
 <h2 id="cpu-and-io-burst-cycles">CPU and I/O Burst Cycles</h2>
 <ul>
-<li>process execution consists of a cycle of ==cpu execution== and ==I/O wait==.</li>
+<li>process execution consists of a cycle of cpu execution and I/O wait.</li>
 <li>process alternates between these 2 states</li>
 <li>process execution begins with :
 <ul>
@@ -302,44 +157,19 @@
 </tr>
 </tbody>
 </table>
-<table>
-<thead>
-<tr>
-<th>P1&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-P2-P3</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;24-27-30</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ul>
+<pre tabindex="0"><code>P1                       P2  P3
+|------------------------|---|---|
+0                        24  27  30
+</code></pre><ul>
 <li>waiting time for P1=0</li>
 <li>waiting time for P2=24 |&mdash;&gt; <strong>Avg waiting time</strong> = (0+24+27)/3 = <strong>17 ms</strong></li>
 <li>waiting time for P3=27
-<strong>another case</strong>
-<table>
-<thead>
-<tr>
-<th>P2-P3-P1</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0&ndash;3&ndash;6&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;30</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</li>
+<strong>another case</strong></li>
+</ul>
+<pre tabindex="0"><code>  P2  P3  P1
+  |---|---|------------------------|
+  0   3   6                        30
+</code></pre><ul>
 <li>waiting time for P1= 6</li>
 <li>waiting time for P2= 0 |&mdash;&gt; <strong>Avg waiting time</strong> = (0+3+6)/3 = <strong>3 ms</strong></li>
 <li>waiting time for P3= 3
@@ -382,48 +212,14 @@
 </tbody>
 </table>
 <p><strong>Gant chart</strong></p>
-<table>
-<thead>
-<tr>
-<th>P4-P1&mdash;-P3&mdash;&ndash;P2</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0&ndash;3&mdash;&ndash;9&mdash;&mdash;16&mdash;&mdash;24</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>waiting time for P1 = 3ms</strong>}</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>waiting time for P2 = 16ms</strong> }==&gt; average waiting time = (3+16+9)/4= <em>7 ms</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>waiting time for P3 = 9ms</strong>}=&gt; with fcfs the avg wait would be <em>10.25 ms</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>waiting time for P4= 0ms</strong>}</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<pre tabindex="0"><code>P4  P1     P3      P2
+|---|------|-------|--------|
+0   3      9       16       24
+</code></pre><hr>
+<p><strong>waiting time for P1 = 3ms</strong>}
+<strong>waiting time for P2 = 16ms</strong> }==&gt; average waiting time = (3+16+9)/4= <em>7 ms</em>
+<strong>waiting time for P3 = 9ms</strong>}=&gt; with fcfs the avg wait would be <em>10.25 ms</em>
+<strong>waiting time for P4= 0ms</strong>}</p>
 <h4 id="example-of-preemptive-sjfs">Example of preemptive SJFS</h4>
 <table>
 <thead>
@@ -456,15 +252,16 @@
 </tr>
 </tbody>
 </table>
-<p><strong>P1</strong>-P2&mdash;-P4&mdash;&mdash;<strong>P1</strong>&mdash;&mdash;&mdash;-P3
-| <strong>-</strong> | - - - - | - - - - - | <strong>- - - - - - -</strong> | - - - - - - - - - |
-0-1&mdash;&mdash;-5&mdash;&mdash;-10&mdash;&mdash;&mdash;-17&mdash;&mdash;&mdash;&mdash;-26
-<strong>waiting time for P1 = (0+10) - 1 - 0 = 9ms</strong>}
+<pre tabindex="0"><code>P1  P2        P4          P1              P3
+| - | - - - - | - - - - - | - - - - - - - | - - - - - - - - - |
+0   1         5           10              17                  26
+</code></pre><hr>
+<p><strong>waiting time for P1 = (0+10) - 1 - 0 = 9ms</strong>}
 <strong>waiting time for P2 = 1- 0 -1 = 0 ms</strong> }==&gt; average waiting time = (26)/4= <em>6.5 ms</em>
 <strong>waiting time for P3 = 17 - 0 - 2 = 15 ms</strong>}=&gt;
 <strong>waiting time for P4= 5 - 0 - 3 = 2 ms</strong>}</p>
 <ul>
-<li>==waiting time = total waiting time - nb of ms process executed - arrival time==</li>
+<li>waiting time = total waiting time - nb of ms process executed - arrival time</li>
 <li>Although the SJF algorithm is optimal, it cannot be implemented at the level of short-term CPU scheduling.</li>
 <li>The real difficulty with the SJF algorithm is knowing the length of the next CPU request.</li>
 <li>There is no way to know the length of the next CPU burst.
@@ -518,14 +315,15 @@ One approach is:</li>
 </tr>
 </tbody>
 </table>
-<p>P2-P5&mdash;&ndash;P1&mdash;&mdash;&mdash;&mdash;&ndash;P3&ndash;P4
+<pre tabindex="0"><code>P2  P5          P1                    P3    P4
 | - | - - - - - | - - - - - - - - - - | - - | - |
-0-1&mdash;&mdash;&ndash;6&mdash;&mdash;&mdash;&mdash;&mdash;-16-18-19
-<strong>waiting time for P1 = 6 ms</strong>}
-<strong>waiting time for P2 = 0 ms</strong> }==&gt; average waiting time = 41/5= <em>8.2 ms</em>
-<strong>waiting time for P3 = 16 ms</strong>}=&gt;
-<strong>waiting time for P4= 18 ms</strong>}
-<strong>waiting time for P5= 1 ms</strong>}</p>
+0   1           6                     16    18  19
+</code></pre><hr>
+<p>waiting time for P1 = 6 ms}
+waiting time for P2 = 0 ms }==&gt; average waiting time = 41/5= <em>8.2 ms</em>
+waiting time for P3 = 16 ms}=&gt;
+waiting time for P4= 18 ms}
+waiting time for P5= 1 ms}</p>
 <h4 id="problem-with-priority-scheduling-algorithm-">Problem with Priority Scheduling algorithm ⚠️</h4>
 <ul>
 <li>in heavily loaded computer system with a stady steam of high priority processes can prevent a low priority process of ever getting to use the cpu</li>
@@ -592,62 +390,33 @@ One approach is:</li>
 </tr>
 </tbody>
 </table>
-<p><strong>P1</strong>&ndash;P2-P3-<strong>P1&ndash;P1&ndash;P1&ndash;P1&ndash;P1</strong>
-|<strong>&mdash;-</strong>|&mdash;|&mdash;|<strong>&mdash;-|&mdash;-|&mdash;-|&mdash;-|&mdash;-</strong>|
-0 4 7 <strong>10 14 18 22 26 30</strong>
-<strong>Turn around time = completion time - arrival time</strong>
+<pre tabindex="0"><code>P1  P2   P3  P1   P1   P1   P1   P1
+|----|---|---|----|----|----|----|----|
+0    4   7   10   14   18   22   26   30
+</code></pre><hr>
+<p><strong>Turn around time = completion time - arrival time</strong>
 **Wait time = tat - burst time **</p>
-</section>
+</div>
+
 
   
-  
-
-  
-  
-  
-  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-    
-    <a
-      class="flex w-1/2 items-center p-6 pr-3 no-underline"
-      href="https://khalil.ninja/posts/docker/"
-      ><span class="mr-1.5">←</span><span>Docker</span></a
-    >
+  </article>
+</main><footer>
     
     
-    <a
-      class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline"
-      href="https://khalil.ninja/posts/my-first-post/"
-      ><span>My First Post</span><span class="ml-1.5">→</span></a
-    >
     
-  </nav>
-  
-
-  
-  
-</article>
-
-
-    </main>
-
-    <footer
-  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
->
-  <div class="mr-auto">
-    &copy; 2022
-    <a class="link" href="https://khalil.ninja/">My New Hugo Site</a>
-  </div>
-  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
-    >Powered by Hugo️️</a
-  >️
-  <a
-    class="link"
-    href="https://github.com/nanxiaobei/hugo-paper"
-    rel="noopener"
-    target="_blank"
-    >▷ Paper 6</a
-  >
+    
+       
+    <h6> &copy; 2022 - Khalil <br>
+    Powered by <a href="https://github.com/jacksalici/salinger-theme">Salinger</a> Hugo theme.
+         <br>Made with ❤️ and ☕️ on 🌍.</h6>
+   
 </footer>
+</body>
 
-  </body>
+   
+  <script src="/js/main.js"></script>
+  
+
+  
 </html>

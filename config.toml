@@ -1,4 +1,4 @@
 baseURL = 'https://khalil.ninja/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Khalil'
 theme = 'paper'
